@@ -27,7 +27,11 @@ class LearningRoute extends Component {
 
   handleGuess = (e) => {
     e.preventDefault();
-
+    ApiService.getNextWord().then((data) => {
+      this.setState({
+        original: data.nextWord
+      })
+    })
     let guess = e.target['learn-guess-input'].value
     this.setState({
       guess
@@ -46,7 +50,8 @@ class LearningRoute extends Component {
   }
 
 
-  handleNextWord = () => {
+  handleNextWord = (e) => {
+    e.preventDefault();
     this.setState({
       showResults: false
     })
@@ -54,18 +59,13 @@ class LearningRoute extends Component {
 
   renderResults = () => {
     let {isCorrect, guess, original, translation, score} = this.state
-    return <div className="results">
-      {isCorrect ? <p>You were correct! :D</p> : <p>Good try, but not quite right :(</p> }
-      <p>The correct translation for {original} was {translation} and you chose {guess}!</p>
-      <p>Your total score is: {score} </p>
+    return <section className="results">
+      <p className="DisplayScore">Your total score is: {score}</p>
+      {isCorrect ? <h2>You were correct! :D</h2> : <h2>Good try, but not quite right :(</h2> }
+      <p className="DisplayFeedback">The correct translation for {original} was {translation} and you chose {guess}!</p>
       <Button onClick={this.handleNextWord}>Try another word!</Button>
-      </div>
+      </section>
   }
-
-  handleNextWord = (e) => {
-
-  }
-
 
   render() {
     return (
