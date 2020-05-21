@@ -9,7 +9,6 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import LearningRoute from '../../routes/LearningRoute/LearningRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import './App.scss';
-import madridImg from '../../imgs/madrid.jpg';
 
 export default class App extends Component {
   state = { hasError: false };
@@ -23,7 +22,6 @@ export default class App extends Component {
     const { hasError } = this.state;
     return (
       <div className="App">
-        <img className="madrid-img" src={madridImg} alt="madrid.jpg" />
         <Header />
         <main>
           {hasError && <p>There was an error! Oh no!</p>}

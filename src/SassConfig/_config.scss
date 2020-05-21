@@ -1,6 +1,7 @@
-$primary-color: #1ecece;
+$primary-color: #53adad;
 $secondary-color: green;
 $ternary-color: orange;
+$form-color: #d4cccc;
 
 $default-border: 5px solid black;
 
@@ -37,6 +38,12 @@ $fonts: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
 }
 
 @mixin set-pad($values) {
+  @each $var in $values {
+    padding: #{$var};
+  }
+}
+
+@mixin set-marg($values) {
   @each $var in $values {
     padding: #{$var};
   }

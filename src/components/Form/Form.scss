@@ -1,0 +1,36 @@
+@import '../../SassConfig/config';
+
+* {
+  box-sizing: border-box;
+  @include flex(2);
+  @include set-pad(4px 2px 2px 4px);
+  @include set-marg(5px 4px 4px 5px);
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.Required {
+  @include set-pad(2px 2px);
+  @include set-marg(2px 2px 2px 2px);
+  background-color: rgba(221, 24, 17, 0.849);
+  border-radius: 20px;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  @include set-pad(2px 2px 2px 2px);
+  @include set-marg(4px 3px 3px 4px);
+}
+
+input[type='text'],
+textarea {
+  @include set-pad(2px 2px);
+  @include set-marg(4px 3px 3px 4px);
+  background-color: $form-color;
+}
+
+span {
+  @include set-pad(3px 3px 3px 3px);
+  @include set-marg(2px 2px 2px 2px);
+  background-color: $form-color;
+}
