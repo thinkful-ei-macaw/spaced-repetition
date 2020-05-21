@@ -14,27 +14,6 @@ class DashboardRoute extends Component {
   static defaultProps = {
     location: {},
     history: {
-<<<<<<< HEAD
-      push: () => { },
-    },
-  }
-
-  componentDidMount() {
-    
-  }
-
-  renderWords = () => {
-    return (
-      <li className="word-to-practice">
-        <p className="word">{word}</p>
-        <p className="correct-guesses">You have guessed this word correctly {correct} times</p>
-        <p className="incorrect-guesses">You have guessed this word correctly {incorrect} times</p>
-
-      </li>
-    )
-  }
-
-=======
       push: () => {},
     },
   };
@@ -67,25 +46,11 @@ class DashboardRoute extends Component {
       wordsToPractice,
     });
   };
->>>>>>> ec9024d3496cdbe44728ebd547294b92d602fc79
 
   render() {
     const { error } = this.state;
     return (
       <section className="dashboard">
-<<<<<<< HEAD
-        <h1>Name of App</h1>
-        {/* Language goes here */}
-        <p className="score">Your Current Score: </p>
-        <h2>Words to Practice</h2>
-        <ul>
-          {this.renderWords()}
-        </ul>
-        <Link to="/learn">
-          <Button>Start Practicing</Button>
-        </Link>
-      </section>  
-=======
         <h2>{this.state.language}</h2>
         <p className="score">Total correct answers: {this.state.score}</p>
         <div role="alert">{error && <p>{error}</p>}</div>
@@ -95,7 +60,6 @@ class DashboardRoute extends Component {
           <Button>Start practicing</Button>
         </Link>
       </section>
->>>>>>> ec9024d3496cdbe44728ebd547294b92d602fc79
     );
   }
 }
