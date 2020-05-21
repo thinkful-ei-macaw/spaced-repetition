@@ -1,0 +1,22 @@
+@import '../../SassConfig/config';
+
+* {
+  box-sizing: border-box;
+  background-color: $primary-color;
+}
+
+.App {
+  @include flex(5);
+  @include direction(column);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  align-items: center;
+  border: $default-border;
+  margin: 30px;
+  padding: 20px;
+}
+
+.madrid-img {
+  @include child-flex;
+  @include set-pad(5px 3px 3px 5px);
+}
