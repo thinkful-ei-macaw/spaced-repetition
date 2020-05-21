@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import LearningPage from "../../components/LearningPage/LearningPage";
 import ApiService from "../../services/api-service";
 import Button from "./../../components/Button/Button";
-
+import { Input, Label } from "./../../components/Form/Form";
 
 class LearningRoute extends Component {
   state = { 
     error: null,
     showResults: false,
-    wasUserCorrect: false,
-    correctCount: 0,
-    incorrectCount: 0,
+    correct: 0,
+    incorrect: 0,
     score: 0,
     isCorrect: false,
     original: '',
@@ -25,20 +23,30 @@ class LearningRoute extends Component {
     },
   };
 
-  handleGuess = (e) => {
-    e.preventDefault();
+  componentDidMount() {
+    this.getNextWord()
+  }
+
+  getNextWord = () => {
     ApiService.getNextWord().then((data) => {
       this.setState({
-        original: data.nextWord
+        original: data.nextWord,
+        incorrect: data.wordIncorrectCount,
+        correct: data.wordCorrectCount,
+        showResults: false,
       })
-    })
+    });
+  }
+
+  handleGuess = (e) => {
+    e.preventDefault();
     let guess = e.target['learn-guess-input'].value
     this.setState({
       guess
     })
     ApiService.getResults(guess).then((data) => {
       this.setState({ 
-        nextWord: data.nextWord,
+        original: data.nextWord,
         score: data.totalScore,
         incorrect: data.wordIncorrectCount,
         correct: data.wordCorrectCount,
@@ -46,9 +54,8 @@ class LearningRoute extends Component {
         showResults: true,
         translation: data.answer,
       })
-      });
+    });
   }
-
 
   handleNextWord = (e) => {
     e.preventDefault();
@@ -57,10 +64,28 @@ class LearningRoute extends Component {
     })
   }
 
+  renderNextWord = () => {
+    const { original, incorrect, correct } = this.state
+    return (
+      <section className="nextWord">
+        <h2>Translate the word:</h2>
+        <span>{original}</span>
+        <p>You have answered this word correctly {correct} times.</p>
+        <p>You have answered this word incorrectly {incorrect} times.</p>
+        <form onSubmit={this.handleGuess}className="answer-form">
+          <Label htmlFor="learn-guess-input">
+            What's the translation for this word?
+          </Label>
+          <Input type="text" name="learn-guess-input" id="learn-guess-input" required></Input>
+          <Button type="submit">Submit your answer</Button>
+        </form>
+      </section>
+    );
+  }
+
   renderResults = () => {
-    let {isCorrect, guess, original, translation, score} = this.state
+    let {isCorrect, guess, original, translation} = this.state
     return <section className="results">
-      <p className="DisplayScore">Your total score is: {score}</p>
       {isCorrect ? <h2>You were correct! :D</h2> : <h2>Good try, but not quite right :(</h2> }
       <p className="DisplayFeedback">The correct translation for {original} was {translation} and you chose {guess}!</p>
       <Button onClick={this.handleNextWord}>Try another word!</Button>
@@ -68,10 +93,11 @@ class LearningRoute extends Component {
   }
 
   render() {
+    let {score} = this.state
     return (
       <section>
-      {this.state.showResults ? this.renderResults() : <LearningPage handleGuess={this.handleGuess}/>}
-        
+      <p className="DisplayScore">Your total score is: {score}</p>
+      {this.state.showResults ? this.renderResults() : this.renderNextWord()}
       </section>
     );
   }
