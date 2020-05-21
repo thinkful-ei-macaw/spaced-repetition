@@ -9,6 +9,7 @@ class LearningRoute extends Component {
     showResults: false,
     correct: 0,
     incorrect: 0,
+    nextWord: '',
     score: 0,
     isCorrect: false,
     original: '',
@@ -29,8 +30,11 @@ class LearningRoute extends Component {
 
   getNextWord = () => {
     ApiService.getNextWord().then((data) => {
+      console.log('getN', {data})
       this.setState({
+        nextWord: data.nextWord,
         original: data.nextWord,
+        score: data.totalScore,
         incorrect: data.wordIncorrectCount,
         correct: data.wordCorrectCount,
         showResults: false,
@@ -45,8 +49,9 @@ class LearningRoute extends Component {
       guess
     })
     ApiService.getResults(guess).then((data) => {
+      console.log('getR',{data})
       this.setState({ 
-        original: data.nextWord,
+        nextWord: data.nextWord,
         score: data.totalScore,
         incorrect: data.wordIncorrectCount,
         correct: data.wordCorrectCount,
@@ -65,11 +70,11 @@ class LearningRoute extends Component {
   }
 
   renderNextWord = () => {
-    const { original, incorrect, correct } = this.state
+    const { nextWord, incorrect, correct } = this.state
     return (
       <section className="nextWord">
         <h2>Translate the word:</h2>
-        <span>{original}</span>
+        <span>{nextWord}</span>
         <p>You have answered this word correctly {correct} times.</p>
         <p>You have answered this word incorrectly {incorrect} times.</p>
         <form onSubmit={this.handleGuess}className="answer-form">
@@ -94,6 +99,7 @@ class LearningRoute extends Component {
 
   render() {
     let {score} = this.state
+    console.log(score)
     return (
       <section>
       <p className="DisplayScore">Your total score is: {score}</p>
