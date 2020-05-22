@@ -1,29 +1,31 @@
+@import '../../SassConfig/config';
+
 .dashboard {
   background-color: rgb(75, 160, 160);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
+  @include flex(4);
+  @include direction(column);
   align-items: baseline;
-  border: 5px solid black;
+  border: $default-border;
   margin: 30px;
   padding: 20px;
 }
 
 .lang {
-  border: 5px solid black;
+  border: $default-border;
   margin: 20px;
   padding: 10px;
 }
 
 .score {
-  border: 5px solid black;
+  border: $default-border;
   margin: 20px;
   padding: 10px;
 }
 
 .words {
-  border: 5px solid black;
+  border: $default-border;
   margin: 20px;
   padding: 10px;
 }

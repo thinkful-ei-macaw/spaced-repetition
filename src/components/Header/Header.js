@@ -42,7 +42,7 @@ class Header extends Component {
         <div className="madrid-img">
           <img src={madridImg} alt="madrid.jpg" />
         </div>
-        <h4>Efficient Education, using the Spanish Language</h4>
+        <h4>Efficient learning strategies, using the Spanish Language</h4>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
