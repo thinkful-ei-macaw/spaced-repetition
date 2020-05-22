@@ -6,7 +6,6 @@ const _TEN_SECONDS_IN_MS = 10000;
 
 const TokenService = {
   saveAuthToken(token) {
-    console.log(config)
     window.localStorage.setItem(config.REACT_APP_TOKEN_KEY, token);
   },
   getAuthToken() {
