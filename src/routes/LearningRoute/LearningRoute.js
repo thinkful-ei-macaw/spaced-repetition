@@ -57,6 +57,7 @@ class LearningRoute extends Component {
     e.preventDefault();
 
     let guess = e.target["learn-guess-input"].value;
+    guess = guess.toLowerCase();
     this.setState({
       guess,
     });
