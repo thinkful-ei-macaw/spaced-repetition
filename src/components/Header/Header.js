@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
 import UserContext from "../../contexts/UserContext";
-import "./Header.css";
+import './Header.scss';
+import madridImg from '../../imgs/madrid.jpg';
 
 class Header extends Component {
   static contextType = UserContext;
@@ -38,6 +39,9 @@ class Header extends Component {
         <h1>
           <Link to="/">Spaced repetition</Link>
         </h1>
+        <div className="madrid-img">
+          <img src={madridImg} alt="cityscape of madrid" />
+        </div>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
