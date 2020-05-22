@@ -10,13 +10,27 @@ header {
   @include direction(column);
   @include set-pad(10px 5px 5px 10px);
   border: $default-border;
-  padding: 5px;
   border-radius: 10px;
+  background-color: $secondary-color;
+  font-style: normal;
+}
+
+h1 {
+  @include flex(5);
+  @include direction(column);
+  @include set-pad(10px 5px 5px 10px);
+  border: $default-border;
+  border-radius: 10px;
+  background-color: $ternary-color;
   font-style: normal;
 }
 
 .login {
   @include child-flex;
+  @include set-pad(5px 3px 3px 5px);
+  @include set-marg(6px 4px 4px 6px);
+  background-color: $ternary-color;
+  font-weight: 600;
 }
 
 a {
@@ -28,6 +42,8 @@ a {
 .madrid-img {
   @include child-flex;
   @include set-pad(5px 3px 3px 5px);
+  border-radius: inherit;
+  border: 5px solid black;
 }
 
 img {

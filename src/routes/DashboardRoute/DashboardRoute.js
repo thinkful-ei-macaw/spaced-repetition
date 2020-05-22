@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "./../../components/Button/Button";
 import ApiService from "./../../services/api-service";
+import './DashboardRoute.scss'
 
 class DashboardRoute extends Component {
   state = {

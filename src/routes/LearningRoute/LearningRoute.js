@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ApiService from "../../services/api-service";
 import Button from "./../../components/Button/Button";
 import { Input, Label } from "./../../components/Form/Form";
+import './LearningRoute.scss'
 
 class LearningRoute extends Component {
   state = {

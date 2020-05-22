@@ -1,0 +1,35 @@
+@import "../../SassConfig/config";
+
+* {
+  box-sizing: border-box;
+}
+
+div[role="alert"] {
+  border: $default-border;
+  background-color: red;
+  border-radius: 10px;
+  @include flex(2);
+  @include direction(column);
+  @include set-marg(4px 2px 2px 4px);
+  @include set-pad(3px 2px 2px 3px);
+}
+
+div {
+  border: $default-border;
+  background-color: $primary-color;
+  border-radius: 10px;
+  @include flex(2);
+  @include direction(column);
+  @include set-marg(4px 2px 2px 4px);
+  @include set-pad(3px 2px 2px 3px);
+}
+
+footer {
+  border: $default-border;
+  background-color: $primary-color;
+  border-radius: 10px;
+  @include flex(2);
+  @include direction(column);
+  @include set-marg(4px 2px 2px 4px);
+  @include set-pad(3px 2px 2px 3px);
+}

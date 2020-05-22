@@ -1,0 +1,25 @@
+@import "../../SassConfig/config";
+
+* {
+  box-sizing: border-box;
+}
+
+section {
+  @include flex(4);
+  @include direction(column);
+  @include set-marg(5px 5px 5px 5px);
+  @include set-pad(2px 3px 3px 2px);
+  border: $default-border;
+  border-radius: 5px;
+  background-color: $ternary-color;
+}
+
+h2 {
+  @include flex(2);
+  @include direction;
+  @include set-marg(5px 5px 5px 5px);
+  @include set-pad(2px 3px 3px 2px);
+  border: $default-border;
+  font-weight: 300;
+  background-color: $secondary-color;
+}
