@@ -1,0 +1,11 @@
+@import "../../SassConfig/config";
+
+* {
+  box-sizing: border-box;
+}
+
+div {
+  @include flex(2);
+  @include set-pad(4px 2px 2px 4px);
+  @include set-marg(5px 2px 2px 5px);
+}

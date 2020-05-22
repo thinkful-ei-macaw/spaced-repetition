@@ -1,0 +1,35 @@
+@import "../../SassConfig/config";
+
+* {
+  box-sizing: border-box;
+  background-color: $primary-color;
+}
+
+header {
+  @include flex(5);
+  @include direction(column);
+  @include set-pad(10px 5px 5px 10px);
+  border: $default-border;
+  padding: 5px;
+  border-radius: 10px;
+  font-style: normal;
+}
+
+.login {
+  @include child-flex;
+}
+
+a {
+  @include set-pad(4px 2px 2px 4px);
+  @include set-marg(2px 3px 3px 2px);
+  background-color: $form-color;
+}
+
+.madrid-img {
+  @include child-flex;
+  @include set-pad(5px 3px 3px 5px);
+}
+
+img {
+  width: 50%;
+}
