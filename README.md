@@ -1,11 +1,33 @@
-# Spaced Repetition Capstone
+# Spaced Repetition Capstone - Client
 
-## Setup
+Written by Sara Mills and Brandon Leek
+
+## Link to live app
+
+https://spaced-repetition-sb.now.sh/
+
+## Link to client repo
+
+https://github.com/thinkful-ei-macaw/spaced-repetition-client-Brandon-Sara
+
+## Link to server repo
+
+https://github.com/thinkful-ei-macaw/spaced-repetition-api-Brandon-Sara
+
+## Summary
+
+This is an app to start learning Spanish using the spaced repetition technique.
+
+### Tech used
+
+Javascript, React, Sass, CSS-flexbox, deployed with Zeit
+
+### Setup
 
 To setup the application
 
 1. Fork and clone the project to your machine
-2. `npm install`. This will also install the application *Cypress.io* for running browser integration tests
+2. `npm install`. This will also install the application _Cypress.io_ for running browser integration tests
 
 The project expects you have the Spaced repetition API project setup and running on http://localhost:8000.
 
