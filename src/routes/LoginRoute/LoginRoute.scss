@@ -10,7 +10,6 @@ section {
   @include set-marg(4px 2px 2px 4px);
   @include set-pad(3px 5px 5px 3px);
   background-color: $secondary-color;
-  border: $default-border;
 }
 
 h2 {
